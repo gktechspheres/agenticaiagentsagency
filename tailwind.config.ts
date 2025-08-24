@@ -106,12 +106,21 @@ export default {
 					'50%': {
 						boxShadow: '0 0 40px hsl(var(--orange-glow) / 0.6)'
 					}
+				},
+				'scroll-left': {
+					'0%': {
+						transform: 'translateX(0)'
+					},
+					'100%': {
+						transform: 'translateX(-50%)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'scroll-left': 'scroll-left 30s linear infinite'
 			}
 		}
 	},

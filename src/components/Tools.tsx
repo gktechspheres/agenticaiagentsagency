@@ -2,18 +2,22 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Tools = () => {
   const tools = [
-    { name: "n8n", category: "Workflow Automation" },
-    { name: "Make.com", category: "Integration Platform" },
-    { name: "Zapier", category: "App Automation" },
-    { name: "OpenAI GPT", category: "Language Models" },
-    { name: "Claude", category: "AI Assistant" },
-    { name: "Gemini", category: "Multimodal AI" },
-    { name: "LangChain", category: "AI Framework" },
-    { name: "Python", category: "Development" },
-    { name: "JavaScript", category: "Development" },
-    { name: "React", category: "Frontend" },
-    { name: "Node.js", category: "Backend" },
-    { name: "PostgreSQL", category: "Database" }
+    { name: "n8n", category: "Workflow Automation", logo: "🔗" },
+    { name: "Make.com", category: "Integration Platform", logo: "🔷" },
+    { name: "Zapier", category: "App Automation", logo: "⚡" },
+    { name: "OpenAI GPT", category: "Language Models", logo: "🤖" },
+    { name: "Claude", category: "AI Assistant", logo: "🧠" },
+    { name: "Gemini", category: "Multimodal AI", logo: "✨" },
+    { name: "LangChain", category: "AI Framework", logo: "🔗" },
+    { name: "Python", category: "Development", logo: "🐍" },
+    { name: "JavaScript", category: "Development", logo: "📜" },
+    { name: "React", category: "Frontend", logo: "⚛️" },
+    { name: "Node.js", category: "Backend", logo: "🟢" },
+    { name: "PostgreSQL", category: "Database", logo: "🐘" },
+    { name: "MongoDB", category: "Database", logo: "🍃" },
+    { name: "Docker", category: "DevOps", logo: "🐳" },
+    { name: "AWS", category: "Cloud", logo: "☁️" },
+    { name: "Supabase", category: "Backend", logo: "⚡" }
   ];
 
   return (
@@ -32,22 +36,47 @@ const Tools = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {tools.map((tool, index) => (
-            <Card 
-              key={index} 
-              className="bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-orange group hover:scale-105"
-            >
-              <CardContent className="p-6 text-center">
-                <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {tool.name}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {tool.category}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Auto-scrolling Tools Banner */}
+        <div className="relative overflow-hidden bg-gradient-card border border-border/50 rounded-lg py-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none"></div>
+          
+          <div className="flex animate-scroll-left">
+            {/* First set of tools */}
+            {tools.map((tool, index) => (
+              <div
+                key={`first-${index}`}
+                className="flex-shrink-0 mx-8 flex items-center gap-4 bg-gradient-card border border-border/30 rounded-lg px-6 py-4 min-w-[200px] hover:border-primary/50 transition-all duration-300 hover:shadow-orange group"
+              >
+                <div className="text-2xl">{tool.logo}</div>
+                <div>
+                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {tool.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    {tool.category}
+                  </p>
+                </div>
+              </div>
+            ))}
+            
+            {/* Duplicate set for seamless scrolling */}
+            {tools.map((tool, index) => (
+              <div
+                key={`second-${index}`}
+                className="flex-shrink-0 mx-8 flex items-center gap-4 bg-gradient-card border border-border/30 rounded-lg px-6 py-4 min-w-[200px] hover:border-primary/50 transition-all duration-300 hover:shadow-orange group"
+              >
+                <div className="text-2xl">{tool.logo}</div>
+                <div>
+                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {tool.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    {tool.category}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 text-center">
