@@ -11,11 +11,11 @@ const Footer = () => {
               <div className="bg-gradient-primary p-2 rounded-lg">
                 <Bot className="w-6 h-6 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-foreground">AI Automation Agency</span>
+              <span className="text-xl font-bold text-foreground">AgenticAIAgentsAgency</span>
             </div>
             <p className="text-muted-foreground">
               Building intelligent AI agents and workflows that solve real business problems 
-              and drive measurable results.
+              and drive measurable results for your business growth.
             </p>
           </div>
 
@@ -38,18 +38,22 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="w-4 h-4" />
-                <span>hello@aiautomation.agency</span>
+                <span>gktechspheres@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 9392576089</span>
+              </div>
+              <div className="flex items-center gap-3 text-muted-foreground">
+                <Phone className="w-4 h-4" />
+                <span>+91 8309341150</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-border/50 mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 AI Automation Agency. Building the future with intelligent automation.</p>
+          <p>&copy; 2025 AgenticAIAgentsAgency. Building the future with intelligent AI automation solutions.</p>
         </div>
       </div>
     </footer>

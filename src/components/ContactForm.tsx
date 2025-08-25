@@ -9,8 +9,8 @@ import { Send, Sparkles } from "lucide-react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
-    phone: "",
     problem: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,21 +26,73 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.problem) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      // Using EmailJS to send email directly from frontend
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: 'service_029tucm', // You'll need to set this up in EmailJS
+          template_id: 'template_o096bew', // You'll need to set this up in EmailJS
+          user_id: '1JFLXrQHN3n8CUm2W', // You'll need to get this from EmailJS
+          template_params: {
+            to_email: 'gktechspheres@gmail.com',
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.problem,
+            subject: 'New AI Agent Inquiry from ' + formData.name,
+          }
+        })
+      });
 
-    toast({
-      title: "🎉 Your AI Solution is Coming!",
-      description: "We'll analyze your needs and reach out with a custom AI workflow within 24 hours.",
-    });
+      if (response.ok) {
+        toast({
+          title: "🎉 Your AI Solution is Coming!",
+          description: "We'll analyze your needs and reach out with a custom AI workflow within 24 hours.",
+        });
+        setFormData({ name: "", email: "", problem: "" });
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      // Fallback: Create mailto link
+      const subject = encodeURIComponent('New AI Agent Inquiry from ' + formData.name);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n\n` +
+        `Problem Description:\n${formData.problem}`
+      );
+      const mailtoLink = `mailto:gktechspheres@gmail.com?subject=${subject}&body=${body}`;
+      
+      window.open(mailtoLink, '_blank');
+      
+      toast({
+        title: "Email Client Opened",
+        description: "Please send the email from your email client to complete your request.",
+      });
+      
+      setFormData({ name: "", email: "", problem: "" });
+    }
 
-    setFormData({ email: "", phone: "", problem: "" });
     setIsSubmitting(false);
   };
 
-  const isFormValid = formData.email && formData.phone && formData.problem;
+  const isFormValid = formData.name && formData.email && formData.problem;
 
   return (
     <section id="contact-form" className="py-24 bg-gradient-hero relative overflow-hidden">
@@ -59,7 +111,7 @@ const ContactForm = () => {
               <Sparkles className="w-8 h-8 text-primary animate-pulse" />
             </div>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Tell us your challenge, and we'll build you a working AI solution. 
+              Tell us your challenge, and our team at <span className="text-primary font-semibold">AgenticAIAgentsAgency</span> will build you a working AI solution. 
               No generic tools—only custom AI that solves your exact problem.
             </p>
           </div>
@@ -75,43 +127,43 @@ const ContactForm = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground font-medium">
-                      Email Address *
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-input/50 border-border/50 focus:border-primary transition-colors"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-foreground font-medium">
-                      Phone Number *
-                    </Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="+1 (555) 123-4567"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-input/50 border-border/50 focus:border-primary transition-colors"
-                    />
-                  </div>
-                </div>
 
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-foreground font-medium">
+                    Name <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-input/50 border-border/50 focus:border-primary transition-colors"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-foreground font-medium">
+                    Email Address <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-input/50 border-border/50 focus:border-primary transition-colors"
+                  />
+                </div>
+                
                 <div className="space-y-2">
                   <Label htmlFor="problem" className="text-foreground font-medium">
-                    What problem do you want AI to solve? *
+                    What problem do you want AI to solve? <span className="text-red-500">*</span>
                   </Label>
                   <Textarea
                     id="problem"

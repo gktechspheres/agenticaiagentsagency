@@ -1,0 +1,27 @@
+/* Sticky stacking effect for process cards */
+.sticky-card-process {
+  position: sticky;
+  top: 0;
+  /* Each card will be offset by its index using inline style or a class */
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+@media (min-width: 640px) {
+  .sticky-card-process {
+    /* On larger screens, increase the offset for stacking */
+    margin-top: -5rem;
+  }
+}
+
+/* Fix for grid background in Hero section */
+.hero-grid-bg {
+  background-image: linear-gradient(to right, rgba(120,120,120,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(120,120,120,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
