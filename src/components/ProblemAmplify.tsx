@@ -20,7 +20,7 @@ const ProblemAmplify = () => {
   ];
 
   return (
-    <section className="py-12 md:py-24 bg-gradient-to-b from-muted/10 to-background relative overflow-hidden">
+    <section id="problems" className="py-12 md:py-24 bg-gradient-to-b from-muted/10 to-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{

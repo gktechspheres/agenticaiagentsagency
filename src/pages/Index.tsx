@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Tools from "@/components/Tools";
 import ProblemAmplify from "@/components/ProblemAmplify";
@@ -12,6 +13,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <Hero />
       {/* <Tools /> */}
       <ProblemAmplify />

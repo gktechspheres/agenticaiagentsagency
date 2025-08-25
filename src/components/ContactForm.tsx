@@ -95,7 +95,7 @@ const ContactForm = () => {
   const isFormValid = formData.name && formData.email && formData.problem;
 
   return (
-    <section id="contact-form" className="py-24 bg-gradient-hero relative overflow-hidden">
+    <section id="contact" className="py-24 bg-gradient-hero relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Header */}

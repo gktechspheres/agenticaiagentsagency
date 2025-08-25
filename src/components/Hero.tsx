@@ -116,7 +116,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background py-8 md:py-0">
+    <section id="hero" className="relative flex justify-center overflow-hidden bg-background py-8 md:py-0">
       {/* CSS Grid Background */}
       <div className="hero-grid-bg" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/95 z-0 pointer-events-none" />
@@ -139,7 +139,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 text-center pt-20">
+      <div className="relative z-10 container mx-auto px-4 md:px-6 text-center pt-10 md:pt-20">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             <span className="text-foreground">

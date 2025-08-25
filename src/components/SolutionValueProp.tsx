@@ -41,7 +41,7 @@ const SolutionValueProp = () => {
   };
 
   return (
-    <section className="py-12 md:py-24 bg-gradient-to-b from-background to-primary/5 relative overflow-hidden">
+    <section id="solutions" className="py-12 md:py-24 bg-gradient-to-b from-background to-primary/5 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl animate-pulse"></div>
