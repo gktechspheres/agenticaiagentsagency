@@ -5,17 +5,17 @@ const ProblemAmplify = () => {
     {
       icon: Clock,
       text: "Endless data entry, reporting, and follow-ups",
-      color: "text-red-500"
+      color: "text-primary"
     },
     {
       icon: MessageSquareX,
       text: "Slow customer support draining your staff's energy",
-      color: "text-orange-500"
+      color: "text-primary"
     },
     {
       icon: TrendingDown,
       text: "Missed leads and wasted opportunities",
-      color: "text-yellow-500"
+      color: "text-primary"
     }
   ];
 
@@ -33,16 +33,16 @@ const ProblemAmplify = () => {
         {/* Problem Section - Dark/Warning Theme */}
         <div className="mb-16 md:mb-20">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 mb-6 bg-red-500/10 px-6 py-3 rounded-full border border-red-500/20">
-              <AlertTriangle className="w-6 h-6 text-red-500 animate-pulse" />
-              <span className="text-red-500 font-semibold">Current Reality</span>
+            <div className="inline-flex items-center gap-3 mb-6 bg-primary/10 px-6 py-3 rounded-full border border-primary/20">
+              <AlertTriangle className="w-6 h-6 text-primary animate-pulse" />
+              <span className="text-primary font-semibold">Current Reality</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Right now, your team is{" "}
-              <span className="text-red-500 relative inline-block">
+              <span className="text-primary relative inline-block">
                 drowning
                 <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" fill="none">
-                  <path d="M0 8 Q50 2 100 8 T200 8" stroke="rgb(239 68 68)" strokeWidth="2" fill="none" opacity="0.6"/>
+                  <path d="M0 8 Q50 2 100 8 T200 8" stroke="hsl(var(--primary))" strokeWidth="2" fill="none" opacity="0.6"/>
                 </svg>
               </span>{" "}
               in repetitive tasks
@@ -50,22 +50,17 @@ const ProblemAmplify = () => {
           </div>
 
           {/* Problems - Card Stack Style */}
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
+          <div className="max-w-4xl mx-auto ">
+            <div className="relative flex flex-col md:flex-row gap-2 md:gap-4">
               {problems.map((problem, index) => (
                 <div 
                   key={index}
-                  className={`bg-gradient-to-r from-red-900/20 to-red-800/10 border border-red-500/30 rounded-2xl p-6 md:p-8 mb-4 backdrop-blur-sm
-                    transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20
-                    ${index === 1 ? 'md:-translate-x-8 md:translate-y-2' : ''}
-                    ${index === 2 ? 'md:translate-x-8 md:translate-y-4' : ''}
+                  className={`bg-gradient-card border border-primary/30 rounded-2xl p-6 md:p-8 mb-4 backdrop-blur-sm
+                    transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 
                   `}
-                  style={{
-                    background: `linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%)`,
-                  }}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`w-14 h-14 rounded-xl bg-red-500/20 flex items-center justify-center border border-red-500/30`}>
+                    <div className={`w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30`}>
                       <problem.icon className={`w-7 h-7 ${problem.color}`} />
                     </div>
                     <p className="text-foreground font-medium text-lg flex-1">
@@ -80,21 +75,21 @@ const ProblemAmplify = () => {
 
         {/* Amplify Section */}
         <div className="text-center mb-12 md:mb-16">
-          <div className="bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 border border-red-500/20 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-orange-500/5 animate-pulse"></div>
+          <div className="bg-gradient-to-r from-primary/10 via-primary/15 to-primary/10 border border-primary/20 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/8 animate-pulse"></div>
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6">
                 Every wasted hour{" "}
-                <span className="text-red-500">compounds</span>
+                <span className="text-primary">compounds</span>
               </h3>
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-lg md:text-xl text-muted-foreground mb-8">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-6 h-6 text-red-500" />
+                  <Clock className="w-6 h-6 text-primary" />
                   <span>Lost time = Lost revenue</span>
                 </div>
                 <div className="hidden md:block w-1 h-8 bg-border"></div>
                 <div className="flex items-center gap-2">
-                  <TrendingDown className="w-6 h-6 text-orange-500" />
+                  <TrendingDown className="w-6 h-6 text-primary" />
                   <span>Competitors are moving faster</span>
                 </div>
               </div>
@@ -122,7 +117,7 @@ const ProblemAmplify = () => {
               
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6">
                 What if instead of tasks{" "}
-                <span className="text-red-500">piling up</span>,{" "}
+                <span className="text-primary line-through decoration-primary/50">piling up</span>,{" "}
                 <br className="hidden md:block" />
                 you had an{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
