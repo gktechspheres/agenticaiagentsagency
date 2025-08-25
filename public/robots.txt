@@ -1,3 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://agenticaiagentsagency.com/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Allow search engines to access CSS and JS files
+Allow: /src/
+Allow: /*.css
+Allow: /*.js
+Allow: /assets/
+
+# Specific rules for major search engines
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +26,11 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: Slurp
 Allow: /
+
+# Block development files if any
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /*.log
